@@ -1,6 +1,12 @@
 ﻿namespace MaU_CSharp5.ContactFiles
 {
-    internal class Countries
+    public enum Countries
     {
+        Sweden,
+        England,
+        Italy,
+        Japan,
+        Korea,
+        Thailand
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MaU_CSharp5.ContactFiles
 {
-    internal class Contact
+    public class Contact
     {
         private string firstName;
         private string lastName;
