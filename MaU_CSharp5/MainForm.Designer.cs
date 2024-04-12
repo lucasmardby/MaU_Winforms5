@@ -48,6 +48,7 @@
             lstCustomers.Name = "lstCustomers";
             lstCustomers.Size = new Size(526, 304);
             lstCustomers.TabIndex = 0;
+            lstCustomers.SelectedIndexChanged += lstCustomers_SelectedIndexChanged;
             // 
             // btnAdd
             // 

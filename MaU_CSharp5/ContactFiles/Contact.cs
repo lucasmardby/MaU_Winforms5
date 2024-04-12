@@ -70,11 +70,11 @@
         }
         public Contact(string firstName, string lastName, Address address, Email email, Phone phone)
         {
-            firstName = FirstName;
-            lastName = LastName;
-            address = Address;
-            email = Email;
-            phone = Phone;
+            FirstName = firstName;
+            LastName = lastName;
+            Address = address;
+            Email = email;
+            Phone = phone;
         }
 
     }

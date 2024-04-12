@@ -17,19 +17,28 @@
 
         public void AddCustomer(Customer customer)
         {
-            customers.Add(customer);
+            Customers.Add(customer);
         }
         public Customer GetCustomer(int index)
         { 
-            return customers[index];
+            return Customers[index];
         }
         public string GetEmail(int index)
         {
-            return customers[index].Contact.Email.EmailBusiness;
+            return Customers[index].Contact.Email.EmailBusiness;
         }
         public string GetPhone(int index)
         {
-            return customers[index].Contact.Phone.CellPhone;
+            return Customers[index].Contact.Phone.CellPhone;
+        }
+        public void ChangeCustomer(Customer customer, int index)
+        {
+            customers[index] = customer;
+        }
+
+        public void DeleteCustomer(int index)
+        {
+            Customers.Remove(GetCustomer(index));
         }
     }
 }

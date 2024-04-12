@@ -2,14 +2,25 @@
 {
     public class Address
     {
-        private string street;
         private string city;
-        private string zipCode;
         private Countries country;
+        private string street;
+        private string zipCode;
 
-        public Address()
+        public Address(string city, Countries country) : this(city, country, "Unknown")
         { 
             
+        }
+        public Address(string city, Countries country, string street) : this(city, country, street, "000 00")
+        {
+
+        }
+        public Address(string city, Countries country, string street, string zipCode)
+        {
+            City = city;
+            Country = country;
+            Street = street;
+            ZipCode = zipCode;
         }
 
         public string Street
@@ -27,7 +38,7 @@
             get { return zipCode; }
             set { zipCode = value; }
         }
-        public Countries Countries
+        public Countries Country
         { 
             get { return country; } 
             set { country = value; }

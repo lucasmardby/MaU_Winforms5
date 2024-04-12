@@ -21,9 +21,36 @@ namespace MaU_CSharp5
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            bool streetInputted = !string.IsNullOrEmpty(txtStreet.Text);
+            bool zipInputted = !string.IsNullOrEmpty(txtZipCode.Text);
+
+            if (zipInputted && !streetInputted)
+            {
+                MessageBox.Show("No street specified", "Error");
+                return;
+            }
+
+            Address address;
+
+            if (streetInputted)
+            {
+                if (zipInputted)
+                {
+                    address = new Address(txtCity.Text, (Countries)cmbCountry.SelectedItem, txtStreet.Text, txtZipCode.Text);
+                }
+                else
+                {
+                    address = new Address(txtCity.Text, (Countries)cmbCountry.SelectedItem, txtStreet.Text);
+                }
+            }
+            else 
+            {
+                address = new Address(txtCity.Text, (Countries)cmbCountry.SelectedItem);
+            }
+
             string firstName = txtFirstName.Text.Trim();
             string lastName = txtLastName.Text.Trim();
-            Address address = new Address();
+
             Email email = new(txtEmailBusiness.Text, txtEmailPrivate.Text);
             Phone phone = new(txtHomePhone.Text, txtCellPhone.Text);
 
@@ -31,12 +58,12 @@ namespace MaU_CSharp5
 
             customerManager.AddCustomer(currentCustomer);
 
-            this.Close();
+            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

@@ -7,6 +7,7 @@
         Italy,
         Japan,
         Korea,
-        Thailand
+        Thailand,
+        Unknown
     }
 }
