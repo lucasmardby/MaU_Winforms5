@@ -1,8 +1,11 @@
+using System.Text;
+
 namespace MaU_CSharp5
 {
     public partial class MainForm : Form
     {
         private CustomerManager customerManager = new CustomerManager();
+        private const string tabSpace = "     ";
 
         public MainForm()
         {
@@ -20,7 +23,15 @@ namespace MaU_CSharp5
 
             for (var i = 0; i < customerManager.Customers.Count(); i++)
             {
-                lstCustomers.Items.Add($"{customerManager.GetEmail(i)}, {customerManager.GetPhone(i)}");
+                int tempID = 101 + i;
+
+                string listboxString = string.Format("{0,-5} {1,-9} {2,10} {3,10}", //adjust distances later
+                                                     tempID,
+                                                     $"{customerManager.GetFullName(i)[1].ToUpper()}, {customerManager.GetFullName(i)[0]}",
+                                                     customerManager.GetEmailBusiness(i),
+                                                     customerManager.GetPhoneOffice(i));
+
+                lstCustomers.Items.Add(listboxString);
             }
         }
 
@@ -39,13 +50,7 @@ namespace MaU_CSharp5
         {
             if (lstCustomers.SelectedIndex >= 0)
             {
-                Customer currentCustomer = customerManager.GetCustomer(lstCustomers.SelectedIndex);
-
-
-
-
-
-                ContactForm dlg = new ContactForm(customerManager);
+                ContactForm dlg = new ContactForm(customerManager, lstCustomers.SelectedIndex);
                 DialogResult dlgResult = dlg.ShowDialog();
 
                 if (dlgResult == DialogResult.OK)
@@ -61,6 +66,7 @@ namespace MaU_CSharp5
             {
                 customerManager.DeleteCustomer(lstCustomers.SelectedIndex);
                 lstCustomers.Items.Remove(lstCustomers.SelectedItem);
+                lblCustomerInfo.Text = string.Empty;
             }
         }
 
@@ -70,7 +76,29 @@ namespace MaU_CSharp5
             {
                 Customer customer = customerManager.GetCustomer(lstCustomers.SelectedIndex);
 
-                lblCustomerInfo.Text = $"{customer.Contact.FirstName} {customer.Contact.LastName}";
+                StringBuilder builder = new StringBuilder();
+
+                //Full Name
+                builder.AppendLine($"{customer.Contact.FirstName} {customer.Contact.LastName}");
+
+                //Address
+                builder.AppendLine(customer.Contact.Address.Street);
+                builder.AppendLine($"{customer.Contact.Address.ZipCode} {customer.Contact.Address.City}");
+                builder.AppendLine(customer.Contact.Address.Country.ToString());
+
+                //Emails
+                builder.AppendLine();
+                builder.AppendLine("Emails");
+                builder.AppendLine($" Office{tabSpace}{customer.Contact.Email.EmailBusiness}");
+                builder.AppendLine($" Private{tabSpace}{customer.Contact.Email.EmailPrivate}");
+
+                //Phone
+                builder.AppendLine();
+                builder.AppendLine("Phone Numbers");
+                builder.AppendLine($" Office{tabSpace}{customer.Contact.Phone.CellPhone}");
+                builder.AppendLine($" Private{tabSpace}{customer.Contact.Phone.HomePhone}");
+
+                lblCustomerInfo.Text = builder.ToString();
             }
         }
     }

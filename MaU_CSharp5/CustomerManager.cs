@@ -23,11 +23,20 @@
         { 
             return Customers[index];
         }
-        public string GetEmail(int index)
+        public string[] GetFullName(int index)
+        {
+            string firstName = Customers[index].Contact.FirstName;
+            string lastName = Customers[index].Contact.LastName;
+
+            string[] fullName = [firstName, lastName];
+
+            return fullName;
+        }
+        public string GetEmailBusiness(int index)
         {
             return Customers[index].Contact.Email.EmailBusiness;
         }
-        public string GetPhone(int index)
+        public string GetPhoneOffice(int index)
         {
             return Customers[index].Contact.Phone.CellPhone;
         }

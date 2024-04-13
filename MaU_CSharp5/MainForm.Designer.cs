@@ -119,6 +119,7 @@
             // lblCustomerInfo
             // 
             lblCustomerInfo.BorderStyle = BorderStyle.Fixed3D;
+            lblCustomerInfo.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCustomerInfo.Location = new Point(544, 52);
             lblCustomerInfo.Name = "lblCustomerInfo";
             lblCustomerInfo.Size = new Size(244, 304);
