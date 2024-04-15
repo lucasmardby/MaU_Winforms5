@@ -299,7 +299,9 @@
             Controls.Add(grpAddress);
             Controls.Add(grpEmailAndPhone);
             Controls.Add(grpName);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "ContactForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ContactForm";
             grpName.ResumeLayout(false);
             grpName.PerformLayout();

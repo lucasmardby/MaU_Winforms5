@@ -5,7 +5,6 @@ namespace MaU_CSharp5
     public partial class MainForm : Form
     {
         private CustomerManager customerManager = new CustomerManager();
-        private const string tabSpace = "     ";
 
         public MainForm()
         {
@@ -25,11 +24,11 @@ namespace MaU_CSharp5
             {
                 int tempID = 101 + i;
 
-                string listboxString = string.Format("{0,-5} {1,-9} {2,10} {3,10}", //adjust distances later
+                string listboxString = string.Format("{0,-5} {1,-10} {2,20} {3,20}",
                                                      tempID,
                                                      $"{customerManager.GetFullName(i)[1].ToUpper()}, {customerManager.GetFullName(i)[0]}",
-                                                     customerManager.GetEmailBusiness(i),
-                                                     customerManager.GetPhoneOffice(i));
+                                                     customerManager.GetPhoneOffice(i),
+                                                     customerManager.GetEmailBusiness(i));
 
                 lstCustomers.Items.Add(listboxString);
             }
@@ -37,10 +36,10 @@ namespace MaU_CSharp5
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ContactForm dlg = new ContactForm(customerManager);
-            DialogResult dlgResult = dlg.ShowDialog();
+            ContactForm contactForm = new ContactForm(customerManager);
+            DialogResult contFormResult = contactForm.ShowDialog();
 
-            if (dlgResult == DialogResult.OK)
+            if (contFormResult == DialogResult.OK)
             {
                 UpdateCustomerList();
             }
@@ -89,14 +88,14 @@ namespace MaU_CSharp5
                 //Emails
                 builder.AppendLine();
                 builder.AppendLine("Emails");
-                builder.AppendLine($" Office{tabSpace}{customer.Contact.Email.EmailBusiness}");
-                builder.AppendLine($" Private{tabSpace}{customer.Contact.Email.EmailPrivate}");
+                builder.AppendLine(string.Format("{0,-10} {1,-9}", " Office", customer.Contact.Email.EmailBusiness));
+                builder.AppendLine(string.Format("{0,-10} {1,-9}", " Private", customer.Contact.Email.EmailPrivate));
 
                 //Phone
                 builder.AppendLine();
                 builder.AppendLine("Phone Numbers");
-                builder.AppendLine($" Office{tabSpace}{customer.Contact.Phone.CellPhone}");
-                builder.AppendLine($" Private{tabSpace}{customer.Contact.Phone.HomePhone}");
+                builder.AppendLine(string.Format("{0,-10} {1,-9}", " Office", customer.Contact.Phone.CellPhone));
+                builder.AppendLine(string.Format("{0,-10} {1,-9}", " Private", customer.Contact.Phone.HomePhone));
 
                 lblCustomerInfo.Text = builder.ToString();
             }

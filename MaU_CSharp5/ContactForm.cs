@@ -95,6 +95,7 @@ namespace MaU_CSharp5
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //
             Close();
         }
 

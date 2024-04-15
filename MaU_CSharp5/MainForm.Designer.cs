@@ -83,7 +83,7 @@
             // lblID
             // 
             lblID.AutoSize = true;
-            lblID.Location = new Point(22, 18);
+            lblID.Location = new Point(14, 18);
             lblID.Name = "lblID";
             lblID.Size = new Size(18, 15);
             lblID.TabIndex = 4;
@@ -92,7 +92,7 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(79, 18);
+            lblName.Location = new Point(55, 18);
             lblName.Name = "lblName";
             lblName.Size = new Size(39, 15);
             lblName.TabIndex = 5;
@@ -101,7 +101,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(189, 18);
+            label1.Location = new Point(197, 18);
             label1.Name = "label1";
             label1.Size = new Size(76, 15);
             label1.TabIndex = 6;
@@ -110,7 +110,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(347, 18);
+            label2.Location = new Point(348, 18);
             label2.Name = "label2";
             label2.Size = new Size(71, 15);
             label2.TabIndex = 7;
@@ -122,7 +122,7 @@
             lblCustomerInfo.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCustomerInfo.Location = new Point(544, 52);
             lblCustomerInfo.Name = "lblCustomerInfo";
-            lblCustomerInfo.Size = new Size(244, 304);
+            lblCustomerInfo.Size = new Size(316, 304);
             lblCustomerInfo.TabIndex = 8;
             lblCustomerInfo.Text = "label3";
             // 
@@ -130,7 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 414);
+            ClientSize = new Size(872, 414);
             Controls.Add(lblCustomerInfo);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -140,7 +140,9 @@
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
             Controls.Add(lstCustomers);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
