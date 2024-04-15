@@ -1,5 +1,8 @@
 ﻿namespace MaU_CSharp5.ContactFiles
 {
+    /// <summary>
+    /// Email class, containing information about the contact's email adresses
+    /// </summary>
     public class Email
     {
         private string emailBusiness;

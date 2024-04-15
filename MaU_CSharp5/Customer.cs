@@ -2,6 +2,9 @@
 
 namespace MaU_CSharp5
 {
+    /// <summary>
+    /// Customer class, creating Contact objects for the Manager
+    /// </summary>
     public class Customer
     {
         private Contact contact;

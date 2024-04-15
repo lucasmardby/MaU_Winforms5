@@ -2,6 +2,9 @@ using System.Text;
 
 namespace MaU_CSharp5
 {
+    /// <summary>
+    /// MainForm class
+    /// </summary>
     public partial class MainForm : Form
     {
         private CustomerManager customerManager = new CustomerManager();
@@ -12,10 +15,16 @@ namespace MaU_CSharp5
             InitializeGUI();
         }
 
+        /// <summary>
+        /// Initializes the MainForm GUI
+        /// </summary>
         private void InitializeGUI()
         {
             lblCustomerInfo.Text = string.Empty;
         }
+        /// <summary>
+        /// Updates the Customer ListBox by clearing it and adding each Customer from the Manager
+        /// </summary>
         private void UpdateCustomerList()
         {
             lstCustomers.Items.Clear();
@@ -34,6 +43,11 @@ namespace MaU_CSharp5
             }
         }
 
+        /// <summary>
+        /// Creates a Contact Form, and updates the Customer list with new information if the user clicks OK 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ContactForm contactForm = new ContactForm(customerManager);
@@ -45,6 +59,12 @@ namespace MaU_CSharp5
             }
         }
 
+        /// <summary>
+        /// Edits the selected customer, by opening the Contact Form with all their information,
+        /// Passing the Manager list and the selected index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (lstCustomers.SelectedIndex >= 0)
@@ -59,6 +79,11 @@ namespace MaU_CSharp5
             }
         }
 
+        /// <summary>
+        /// Deletes the selected customer, from the list and the listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (lstCustomers.SelectedIndex >= 0)
@@ -69,6 +94,13 @@ namespace MaU_CSharp5
             }
         }
 
+        /// <summary>
+        /// If the selected index in the listbox is changed, the current selected customer
+        /// is shown in the large customer info label.
+        /// Uses StringBuilder to save space in creating the large string
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstCustomers.SelectedIndex >= 0)

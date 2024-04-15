@@ -1,5 +1,8 @@
 ﻿namespace MaU_CSharp5.ContactFiles
 {
+    /// <summary>
+    /// Enumarable containing the countries of the world, for the country comboBox in ContactForm
+    /// </summary>
     public enum Countries
     {
         Afghanistan,

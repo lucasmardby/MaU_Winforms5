@@ -1,5 +1,8 @@
 ﻿namespace MaU_CSharp5.ContactFiles
 {
+    /// <summary>
+    /// Contact class, containing all the information about the Customers
+    /// </summary>
     public class Contact
     {
         private string firstName;

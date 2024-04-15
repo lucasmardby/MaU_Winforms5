@@ -2,6 +2,9 @@
 
 namespace MaU_CSharp5
 {
+    /// <summary>
+    /// ContactForm class
+    /// </summary>
     public partial class ContactForm : Form
     {
         private Customer currentCustomer;
@@ -22,10 +25,14 @@ namespace MaU_CSharp5
             InitializeComponent();
             InitializeGUI();
         }
-
+        /// <summary>
+        /// Initializes the MainForm GUI
+        /// If a customer is passed for editing, it is initialized with all of their customer information
+        /// </summary>
         private void InitializeGUI()
         {
             cmbCountry.DataSource = Enum.GetValues(typeof(Countries));
+            cmbCountry.SelectedItem = Countries.Unknown;
 
             if (currentCustomer != null)
             {
@@ -44,6 +51,13 @@ namespace MaU_CSharp5
             }
         }
 
+        /// <summary>
+        /// Adds a new customer, with all user-input information.
+        /// Using the chain-calling constructors in Adress.cs, it makes sure that all necessary information is inputted
+        /// If a currentCustomer is passed, it will edit the customer instead.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (currentCustomer != null)
@@ -93,12 +107,21 @@ namespace MaU_CSharp5
             Close();
         }
 
+        /// <summary>
+        /// Cancel button, confirming with the user before closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //
-            Close();
+            if (MessageBox.Show("Are you sure you want to cancel?", "Cancel", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Close();
+            }
         }
-
+        /// <summary>
+        /// Edits the currentCustomer, passing all the inputted information
+        /// </summary>
         private void EditCustomer()
         {
             currentCustomer.Contact.FirstName = txtFirstName.Text;

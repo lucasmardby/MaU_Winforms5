@@ -1,5 +1,8 @@
 ﻿namespace MaU_CSharp5.ContactFiles
 {
+    /// <summary>
+    /// Phone class, containing information about the contact's phone numbers
+    /// </summary>
     public class Phone
     {
         private string homePhone;

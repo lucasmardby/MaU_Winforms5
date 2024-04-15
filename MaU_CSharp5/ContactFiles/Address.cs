@@ -1,5 +1,9 @@
 ﻿namespace MaU_CSharp5.ContactFiles
 {
+    /// <summary>
+    /// Address class, containing information about the contact's adress
+    /// Uses three constructors to pass default values for street and zipcode
+    /// </summary>
     public class Address
     {
         private string city;
